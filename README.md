@@ -7,3 +7,12 @@ But we may need to continue executing steps even if a step fails, and we may nee
 - Running Jobs and Steps conditionally
 - Running Jobs with a Matrix
 - Re-Using Workflows
+
+### Conditional Jobs & Steps
+
+| Jobs                                 | Steps                                        |
+| ------------------------------------ | -------------------------------------------- |
+| Conditional execution via `if` field | Conditional execution via `if` field         |
+|                                      | Ignores errors via `continue-on-error` field |
+
+We can add the conditions via `if` and `continue-on-error` fields with the help of expressions.
