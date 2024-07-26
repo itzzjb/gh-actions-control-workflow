@@ -86,3 +86,14 @@ jobs:
         run: ls
       - name: Deploy
         run: echo "Deploying..."
+  # We can also have condtional jobs
+  report:
+    # Lint is not a sequential job, it's running parallel to the other jobs.
+    # So, we need to make sure that the lint job is completed before this job starts
+    # And we need to add the deply job as a dependency for this job
+    # This will make sure all test, build and deploy jobs are completed before this job starts
+    needs: [lint, deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output report
+        run: echo "Something went wrong"
