@@ -21,7 +21,18 @@ We can add the conditions via `if` and `continue-on-error` fields with the help 
 
 [For more details](https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context)
 
-| Property   | Description                                                                                                                                                                                                                                            |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Conclusion | The result of a completed step **after** `continue-on-error` is applied. Possible values are `success`, `failure` `cancelled`, or `skipped`. When a `continue-on-error` step fails, the outcome is `failure`, but the final conclusion is `success`.   |
-| Outcome    | The result of a completed step **before** `continue-on-error` is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the outcome is `failure`, but the final conclusion is `success`. |
+| Property   | Description                                                               |
+| ---------- | ------------------------------------------------------------------------- |
+| Conclusion | The result of a completed step **after** `continue-on-error` is applied.  |
+| Outcome    | The result of a completed step **before** `continue-on-error` is applied. |
+
+### Special IF Condition Functions
+
+| Function    | Description                                                |
+| ----------- | ---------------------------------------------------------- |
+| failure()   | Returns `true` when any previous step or job failed        |
+| success()   | Returns `true` when none of the previous steps have failed |
+| always()    | Causes the step to always execute. even when cancelled     |
+| cancelled() | Return `true` if a workflow has been cancelled             |
+
+These functions can be used in our conditions, to ensure that certain steps only run when other steps `failed` or `succeeded` of they always run or only run if a workflow has been `cancelled`.
