@@ -16,3 +16,10 @@ But we may need to continue executing steps even if a step fails, and we may nee
 |                                      | Ignores errors via `continue-on-error` field |
 
 We can add the conditions via `if` and `continue-on-error` fields with the help of expressions.
+
+### Conclusion and Outcome
+
+[For more details](https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context)
+
+| Conclusion | The result of a completed step **after** `continue-on-error` is applied. Possible values are `success`, `failure` `cancelled`, or `skipped`. When a `continue-on-error` step fails, the outcome is `failure`, but the final conclusion is `success`. |
+| Outcome | The result of a completed step **before** `continue-on-error` is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the outcome is `failure`, but the final conclusion is `success`. |
