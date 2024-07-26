@@ -93,6 +93,8 @@ jobs:
     # And we need to add the deply job as a dependency for this job
     # This will make sure all test, build and deploy jobs are completed before this job starts
     needs: [lint, deploy]
+    # By usinf failure() we will ensure that this will run only if one of the previous job fails
+    if: failure()
     runs-on: ubuntu-latest
     steps:
       - name: Output report
