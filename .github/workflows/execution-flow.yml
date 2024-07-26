@@ -98,4 +98,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output report
-        run: echo "Something went wrong"
+        run: |
+          echo "Something went wrong"
+          echo "${{ toJSON(github) }}"
